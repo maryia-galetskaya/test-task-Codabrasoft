@@ -36,8 +36,7 @@ http://127.0.0.1:5000/api/most_popular_genres?year=2010
 
 
 
-Optionally, you can also provide the row_count parameter to limit the number of results returned:
-http://127.0.0.1:5000/api/most_popular_genres?year=2010&row_count=5
+Optionally, you can also provide the row_count parameter to limit the number of results returned: http://127.0.0.1:5000/api/most_popular_genres?year=2010&row_count=5
 
 
 
