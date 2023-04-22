@@ -9,6 +9,8 @@ app = Flask(__name__)
 def get_genres():
     year = request.args.get('year')
     row_count = request.args.get('row_count', default=5, type=int)
+    if row_count <= 0:
+        row_count = 5
 
     if not year:
         return jsonify(error='Year parameter is missing'), 400
