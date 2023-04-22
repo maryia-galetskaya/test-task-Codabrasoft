@@ -4,9 +4,6 @@ from business_logic import get_most_popular_genres
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return 'Hello, World!'
 
 
 @app.route('/api/most_popular_genres', methods=['GET'])
@@ -26,4 +23,5 @@ def get_genres():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=8080)
+

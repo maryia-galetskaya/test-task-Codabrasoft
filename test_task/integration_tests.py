@@ -1,13 +1,10 @@
 import unittest
-from unittest.mock import patch
 import requests
-from app import app
 
 class TestApp(unittest.TestCase):
 
     def setUp(self):
-        self.base_url = 'http://127.0.0.1:5000/api/most_popular_genres'
-        self.app = app.test_client()
+        self.base_url = 'http://127.0.0.1:8080/api/most_popular_genres'
 
     def test_get_genres_with_valid_year(self):
         # Test with a valid year parameter
