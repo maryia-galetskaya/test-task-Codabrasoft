@@ -30,13 +30,13 @@ python app.py
 
 By default, the API will be available at http://127.0.0.1:5000.
 
-To retrieve the most popular genres for a given year, make a GET request to the '/api/most_popular_genres' endpoint with the year parameter set to the desired year: http://127.0.0.1:5000/api/most_popular_genres?year=2010
+To retrieve the most popular genres for a given year, make a GET request to the '/api/most_popular_genres' endpoint with the year parameter set to the desired year:
+http://127.0.0.1:5000/api/most_popular_genres?year=2010
 
 
 
 
 Optionally, you can also provide the row_count parameter to limit the number of results returned:
-
 http://127.0.0.1:5000/api/most_popular_genres?year=2010&row_count=5
 
 
