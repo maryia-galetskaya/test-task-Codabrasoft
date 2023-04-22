@@ -5,7 +5,6 @@ from business_logic import get_most_popular_genres
 app = Flask(__name__)
 
 
-
 @app.route('/api/most_popular_genres', methods=['GET'])
 def get_genres():
     year = request.args.get('year')

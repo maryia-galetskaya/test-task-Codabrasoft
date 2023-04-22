@@ -1,8 +1,8 @@
-import os
-import pandas as pd
 from datetime import datetime
-from data_logic import  check_input_file, load_data
+from data_logic import load_data
 
+class CustomException(Exception):
+    pass
 
 def get_most_popular_genres(year, row_count):
     try:
@@ -14,18 +14,14 @@ def get_most_popular_genres(year, row_count):
     # Movies were not commercially screened until December 28, 1895, so I set a lower bound of 1885 for the year parameter.
     if year < 1885 or year > current_year:
         return {'error': f'Year parameter must be between 1885 and {current_year}.'}, 400
-       
-
-    # input_file = 'movies.tsv'
-    # if not os.path.exists(input_file):
-    #     return {'error': f'Input file {input_file} not found.'}, 404\
-    input_file = check_input_file()
-    # data = load_data()
-
+    
     try:
-        data = pd.read_csv(input_file, sep='\t', header=0)
-    except:
-        return {'error': f'Error reading input file {input_file}.'}, 500
+        data = load_data()
+    except CustomException as e:
+        return {'error': str(e)}, 500
+    
+    if isinstance(data, tuple):
+        return data
 
     year_data = data[data['startYear'] == year]
 
