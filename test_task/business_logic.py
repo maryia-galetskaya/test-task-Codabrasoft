@@ -23,10 +23,13 @@ def get_most_popular_genres(year, row_count):
     if isinstance(data, tuple):
         return data
 
-    year_data = data[data['startYear'] == year]
+
+    year_data = data[(data['genres'] != '\\N') & (data['startYear'] == year)]
+
 
     if year_data.empty:
         return {'error': f'No data found for year {year}.'}, 404
+
 
     genres = year_data['genres'].str.split(',').explode().value_counts().reset_index()
     genres = genres.sort_values('count', ascending=False)

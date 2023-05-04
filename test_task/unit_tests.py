@@ -32,7 +32,6 @@ class TestLogic(unittest.TestCase):
 
     def test_get_most_popular_genres_with_no_genres(self):
         # Test for getting most popular genres for a year with no available genres
-        input_file = 'movies.tsv'
         expected_result = {'error': f'No data found for year 1886.'}, 404
         result = get_most_popular_genres(1886, 10)
         self.assertEqual(result, expected_result)
@@ -60,7 +59,7 @@ class TestLogic(unittest.TestCase):
     def test_check_input_file(self):
         # test if input file exists
         self.assertTrue(os.path.exists('movies.tsv'))
-
+        
         # test if FileNotFoundError is raised when input file doesn't exist
         with self.assertRaises(FileNotFoundError):
             check_input_file(input_file='non_existent_file.tsv')
